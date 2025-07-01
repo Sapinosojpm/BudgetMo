@@ -1,0 +1,26 @@
+#Home {
+    position: relative;
+    overflow: hidden;
+}
+
+#Home::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../assets/wallet.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s;
+    z-index: 0;
+}
+
+#Home.bg-visible::before {
+    opacity: 1;
+}
+
+#Home > * {
+    position: relative;
+    z-index: 1;
+}
