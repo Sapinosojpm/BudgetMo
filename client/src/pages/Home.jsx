@@ -13,12 +13,12 @@ const Home = () => {
       <h1 className='text-4xl font-bold store-blue'>Welcome to BudgetMo <span className='text-gray-100'>, wala ng budget</span></h1>
       <div className='text-sm text-gray-500'>
         <p className='text-gray-500 py-2'>
-            BudgetMo is a simple and easy to use budget tracker that helps you manage your money.
+            BudgetMo is a simple and easy to use budget tracker that helps you <span className="line-through text-gray-400">manage</span> <strong>gastos</strong> your money.
         </p> 
       </div>
       <div className='relative flex gap-4 mt-4 items-center justify-center'>
         <button
-          className='bg-black text-white border-1 border-black px-4 py-2 rounded-md font-bold hover:bg-transparent hover:text-black hover:border-black hover:border-1 transition'
+          className='bg-black text-white border-1 border-black px-4 py-2 rounded-md font-bold hover:bg-transparent hover:text-white hover:border-white hover:border-1 transition'
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
