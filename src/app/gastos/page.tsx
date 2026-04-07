@@ -23,13 +23,13 @@ export default function GastosPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <header className="flex justify-between items-center mb-2">
-        <h1 className="text-3xl font-bold font-outfit text-gradient">Mga Gastos</h1>
+      <header className="flex justify-between items-center mb-2 bg-white border-[3px] border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        <h1 className="text-3xl font-black font-outfit uppercase">Mga Gastos</h1>
         <button 
           onClick={() => setIsAdding(true)}
-          className="w-10 h-10 rounded-full bg-accent text-background flex items-center justify-center shadow-[0_0_15px_rgba(255,215,0,0.3)] active:scale-95 transition-transform"
+          className="w-12 h-12 bg-accent border-[3px] border-black flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all"
         >
-          <Plus size={24} />
+          <Plus size={28} strokeWidth={4} />
         </button>
       </header>
 
@@ -38,37 +38,38 @@ export default function GastosPage() {
         <input 
           type="text" 
           placeholder="Hanapin ang gastos mo..." 
-          className="w-full glass p-4 pl-12 rounded-2xl outline-none focus:ring-1 ring-accent/30 transition-all text-sm"
+          className="w-full bg-white border-[3px] border-black p-4 pl-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] outline-none font-bold placeholder:text-gray-400 placeholder:italic"
         />
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-black" size={20} strokeWidth={3} />
       </div>
 
       {/* Expense List */}
-      <div className="space-y-4">
+      <div className="space-y-5">
         {expenses.map((expense) => (
           <motion.div 
             key={expense.id}
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            className="glass-card p-5 flex justify-between items-center group hover:bg-white/5 transition-colors"
+            className="bg-white border-[3px] border-black p-5 flex justify-between items-center shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all"
           >
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl glass flex items-center justify-center text-accent">
+              <div className="w-12 h-12 border-2 border-black bg-accent/50 flex items-center justify-center">
                 {(() => {
                   const Icon = categories.find(c => c.id === expense.category)?.icon || Tag;
-                  return <Icon size={20} />;
+                  return <Icon size={24} strokeWidth={3} className="text-black" />;
                 })()}
               </div>
               <div>
-                <h3 className="font-bold text-sm">{expense.title}</h3>
-                <p className="text-[11px] text-gray-500 uppercase tracking-tighter">
+                <h3 className="font-black text-sm uppercase">{expense.title}</h3>
+                <p className="text-[10px] text-gray-500 font-black uppercase tracking-tight">
                   {categories.find(c => c.id === expense.category)?.name} • {expense.date}
                 </p>
               </div>
             </div>
             <div className="text-right">
-              <p className="font-bold font-outfit text-warning">-₱{expense.amount.toLocaleString()}</p>
-              <div className="h-1 w-0 group-hover:w-full bg-warning/30 transition-all duration-500 mt-1" />
+              <p className="font-black font-outfit text-warning bg-black text-white px-2 py-0.5 shadow-[2px_2px_0px_0px_rgba(239,68,68,1)]">
+                -₱{expense.amount.toLocaleString()}
+              </p>
             </div>
           </motion.div>
         ))}
@@ -83,62 +84,63 @@ export default function GastosPage() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsAdding(false)}
-              className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 px-6 pt-20"
+              className="fixed inset-0 bg-accent/10 backdrop-blur-[2px] z-50 flex items-center justify-center p-6"
             >
               <motion.div 
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: 50, opacity: 0 }}
+                initial={{ y: 50, rotate: -2 }}
+                animate={{ y: 0, rotate: 0 }}
+                exit={{ y: 50, rotate: 2 }}
                 onClick={(e) => e.stopPropagation()}
-                className="glass-card p-8 w-full max-w-md mx-auto relative shadow-2xl overflow-hidden"
+                className="bg-white border-[4px] border-black p-8 w-full max-w-md shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 blur-3xl rounded-full -mr-16 -mt-16" />
+                {/* Visual Decorations */}
+                <div className="absolute -top-4 -right-4 w-12 h-12 bg-accent border-[3px] border-black rotate-12" />
                 
                 <div className="flex justify-between items-center mb-8 relative z-10">
-                  <h2 className="text-xl font-bold font-outfit">Bagong Gasto</h2>
-                  <button onClick={() => setIsAdding(false)} className="text-gray-400 hover:text-white transition-colors">
-                    <X size={24} />
+                  <h2 className="text-3xl font-black font-outfit uppercase italic">Bagong Gasto</h2>
+                  <button onClick={() => setIsAdding(false)} className="bg-black text-white p-1 shadow-[2px_2px_0px_0px_rgba(239,68,68,1)]">
+                    <X size={24} strokeWidth={4} />
                   </button>
                 </div>
 
                 <div className="space-y-6 relative z-10">
                   <div>
-                    <label className="text-[10px] uppercase font-bold text-gray-500 mb-2 block tracking-widest">Ano ito?</label>
+                    <label className="text-[10px] uppercase font-black mb-2 block tracking-widest bg-accent inline-block px-1 border border-black">Ano ito?</label>
                     <input 
                       type="text" 
                       placeholder="e.g. Pamalengke, Jeep, Coffee" 
-                      className="w-full bg-white/5 border border-white/10 rounded-xl p-4 outline-none focus:border-accent/40 transition-colors"
+                      className="w-full bg-white border-[3px] border-black p-4 font-bold outline-none focus:bg-accent/5 transition-colors"
                     />
                   </div>
                   
                   <div>
-                    <label className="text-[10px] uppercase font-bold text-gray-500 mb-2 block tracking-widest">Magkano?</label>
+                    <label className="text-[10px] uppercase font-black mb-2 block tracking-widest bg-accent inline-block px-1 border border-black">Magkano?</label>
                     <div className="relative">
-                      <span className="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-gray-400">₱</span>
+                      <span className="absolute left-4 top-1/2 -translate-y-1/2 font-black text-black">₱</span>
                       <input 
                         type="number" 
                         placeholder="0.00" 
-                        className="w-full bg-white/5 border border-white/10 rounded-xl p-4 pl-10 outline-none focus:border-accent/40 transition-colors font-outfit text-xl font-bold"
+                        className="w-full bg-white border-[3px] border-black p-4 pl-10 font-black text-2xl outline-none"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-[10px] uppercase font-bold text-gray-500 mb-3 block tracking-widest">Kategorya</label>
-                    <div className="grid grid-cols-3 gap-2">
+                    <label className="text-[10px] uppercase font-black mb-3 block tracking-widest bg-accent inline-block px-1 border border-black">Kategorya</label>
+                    <div className="grid grid-cols-3 gap-3">
                       {categories.map((cat) => (
                         <button 
                           key={cat.id}
-                          className="glass p-3 rounded-xl flex flex-col items-center gap-1 hover:border-accent/30 transition-all group"
+                          className="bg-white border-[2px] border-black p-3 flex flex-col items-center gap-1 hover:bg-accent transition-all group shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-0.5 active:translate-y-0.5"
                         >
-                          <cat.icon size={16} className="text-gray-400 group-hover:text-accent" />
-                          <span className="text-[9px] text-center text-gray-500">{cat.name.split(' ')[0]}</span>
+                          <cat.icon size={20} strokeWidth={3} className="text-black" />
+                          <span className="text-[8px] font-black uppercase text-center">{cat.name.split(' ')[0]}</span>
                         </button>
                       ))}
                     </div>
                   </div>
 
-                  <button className="w-full bg-accent text-background font-bold py-4 rounded-xl shadow-lg active:scale-95 transition-transform mt-4">
+                  <button className="w-full bg-black text-white font-black py-5 text-lg uppercase tracking-tight shadow-[6px_6px_0px_0px_rgba(255,215,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1 transition-all mt-4 border-2 border-black">
                     I-save ang Gasto
                   </button>
                 </div>
