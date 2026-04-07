@@ -2,20 +2,22 @@
 
 **"Kamusta, tipid tayo today?"**
 
-BudgetMo is a premium, Filipino-centric expense tracking and savings app designed to help you navigate the unique financial landscape of living in the Philippines. From managing your daily "karinderya" expenses to surviving "Petsa de Peligro," BudgetMo is your ultimate *alkansya* digital partner.
+BudgetMo is a premium, Filipino-centric expense tracking and savings app designed using **Neo-Brutalism** aesthetics. It helps you navigate the unique financial landscape of living in the Philippines—from managing your daily "karinderya" expenses to surviving "Petsa de Peligro."
 
-![BudgetMo Preview](docs/images/mockup.png)
+![BudgetMo Neo-Brutalist Preview](docs/images/mockup.png)
 
 ## ✨ Features
 
-- **🛡️ Daily Ligtas Spend**: Automatically calculates how much you can safely spend per day based on your remaining budget and days until sahod.
-- **🚨 Petsa de Peligro Tracker**: A specialized countdown to your next payday (15th or 30th) with adaptive alerts.
-- **📈 Total Ipon Monitoring**: See your total savings at a glance with a clean, glassmorphic dashboard.
-- **🎯 Ipon Challenges**: Built-in 52-week challenge and emergency fund trackers to keep your savings on track.
-- **🇵🇭 Localized Context**: Categorize expenses using familiar terms like *Tricycle*, *Karinderya*, and *Pang-Gala*.
+- **🛡️ Survival Mode**: Automatically activates when payday is near (<= 3 days) with dynamic "Tipid Hacks."
+- **🌟 Diskarte Hub**: A central hub for localized utilities like the **Libre Tracker**, **Paluwagan Manager**, and **Sideline Kita**.
+- **🚨 Petsa de Peligro Tracker**: A specialized countdown to your next payday (15th or 30th) with high-contrast alerts.
+- **📈 Total Ipon Monitoring**: See your total savings at a glance with a bold, high-energy dashboard.
+- **🎯 Pinoy Savings Goals**: Built-in trackers for the 52-week challenge and "Abuloy & Handog" funds.
+- **🇵🇭 Localized Context**: Categorize expenses using familiar terms like *Tricycle*, *Karinderya*, and *Load*.
 
-## 🚀 Tech Stack
+## 🚀 Design & Tech Stack
 
+- **Design Style**: **Neo-Brutalism** (Bold borders, hard shadows, high contrast)
 - **Framework**: [Next.js 15+](https://nextjs.org/) (App Router)
 - **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
@@ -42,12 +44,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 - `src/app/` - Next.js App Router pages and layouts.
 - `src/components/` - Reusable UI components.
-- `src/hooks/` - Custom React hooks for budget calculations.
+- `src/app/diskarte/` - Pinoy Power Hub features.
 - `docs/` - Documentation and media assets.
-
-## 📄 License
-
-This project is private and intended for personal use.
 
 ---
 *Built with ❤️ for every Pinoy who wants to save more.*
